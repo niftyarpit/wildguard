@@ -32,6 +32,11 @@ enum AnimalType: String, CaseIterable {
         }
     }
 
+#if os(visionOS)
+    var background: Material {
+        .regular
+    }
+#else
     var background: Color {
         switch self {
         case .earth:
@@ -42,4 +47,5 @@ enum AnimalType: String, CaseIterable {
             .orange
         }
     }
+#endif
 }

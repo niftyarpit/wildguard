@@ -13,6 +13,14 @@ struct WildGuardApp: App {
         WindowGroup {
             ContentView()
         }
+        WindowGroup(for: String.self) { $string in
+            if let string {
+                Image(string)
+                    .resizable()
+                    .scaledToFill()
+            }
+        }
+        .defaultSize(width: 1000, height: 1000)
     }
 }
 

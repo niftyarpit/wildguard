@@ -25,10 +25,13 @@ struct HomeView: View {
 
             HStack {
                 ForEach(AnimalType.allCases, id: \.self) { type in
-                    CategoryStack(type: type)
-                        .onTapGesture {
-                            dataController.selectedTab = type.rawValue
-                        }
+                    Button {
+                        dataController.selectedTab = type.rawValue
+                    } label: {
+                        CategoryStack(type: type)
+                    }
+                    .buttonStyle(.plain)
+                    .buttonBorderShape(.roundedRectangle(radius: 10))
                 }
             }
             .fixedSize(horizontal: false, vertical: true)
