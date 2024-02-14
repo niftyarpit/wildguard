@@ -23,6 +23,7 @@
 		516619B72B6409DC00A6A4D6 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516619B62B6409DC00A6A4D6 /* DataController.swift */; };
 		516619B92B64327C00A6A4D6 /* CategoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516619B82B64327C00A6A4D6 /* CategoryStack.swift */; };
 		51BF1B7E2B646AC000514ADC /* AnimalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BF1B7D2B646AC000514ADC /* AnimalRow.swift */; };
+		F5038A2A2B7CA75E00A70022 /* ZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5038A292B7CA75E00A70022 /* ZoomedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		516619B62B6409DC00A6A4D6 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		516619B82B64327C00A6A4D6 /* CategoryStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStack.swift; sourceTree = "<group>"; };
 		51BF1B7D2B646AC000514ADC /* AnimalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRow.swift; sourceTree = "<group>"; };
+		F5038A292B7CA75E00A70022 /* ZoomedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				516619772B63EEB900A6A4D6 /* WildGuardApp.swift */,
+				F5038A292B7CA75E00A70022 /* ZoomedView.swift */,
 				516619792B63EEB900A6A4D6 /* ContentView.swift */,
 				516619892B63EECA00A6A4D6 /* HomeView.swift */,
 				516619B82B64327C00A6A4D6 /* CategoryStack.swift */,
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5038A2A2B7CA75E00A70022 /* ZoomedView.swift in Sources */,
 				516619962B63EECA00A6A4D6 /* AnimalView.swift in Sources */,
 				51BF1B7E2B646AC000514ADC /* AnimalRow.swift in Sources */,
 				516619B92B64327C00A6A4D6 /* CategoryStack.swift in Sources */,

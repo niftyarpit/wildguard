@@ -99,13 +99,13 @@ struct AnimalView: View {
         .padding([.horizontal, .bottom], 20)
         .frame(maxWidth: .infinity, alignment: .leading)
         .toolbar {
-            Toggle("Toggle Favorite", systemImage: "star", isOn: $animalIsFavorite)
-
-            Button("Learn more", systemImage: "safari") {
-                openURL(animal.url)
+            ToolbarItemGroup(placement: .bottomOrnament) {
+                Toggle("Toggle Favorite", systemImage: "star", isOn: $animalIsFavorite)
+                Button("Learn more", systemImage: "safari") {
+                    openURL(animal.url)
+                }
+                ShareLink(item: animal.url)
             }
-
-            ShareLink(item: animal.url)
         }
     }
 

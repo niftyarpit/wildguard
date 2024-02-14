@@ -15,12 +15,11 @@ struct WildGuardApp: App {
         }
         WindowGroup(for: String.self) { $string in
             if let string {
-                Image(string)
-                    .resizable()
-                    .scaledToFill()
+                ZoomedView(imageName: string)
             }
         }
-        .defaultSize(width: 1000, height: 1000)
+        .defaultSize(width: 1, height: 1, depth: 0.5, in: .meters)
+        .windowStyle(.volumetric)
     }
 }
 
