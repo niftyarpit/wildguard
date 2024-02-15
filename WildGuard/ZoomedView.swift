@@ -10,7 +10,10 @@ import RealityKit
 
 struct ZoomedView: View {
 
-    let imageName: String
+    let animal: Animal
+
+    @State private var spinX = 0.0
+    @State private var spinY = 0.0
 
     var body: some View {
         RealityView { content in
@@ -18,33 +21,30 @@ struct ZoomedView: View {
             guard let texture = try? await TextureResource(named: "Earth") else { return }
             var material = UnlitMaterial()
             material.color = .init(texture: .init(texture))
-            //let material = UnlitMaterial(color: .red, applyPostProcessToneMap: false)
             let model = ModelEntity(mesh: shape, materials: [material])
             model.components.set(GroundingShadowComponent(castsShadow: true))
             model.components.set(InputTargetComponent())
             model.generateCollisionShapes(recursive: false, static: true)
-            //model.collision = CollisionComponent(shapes: [.generateSphere(radius: 0.25)])
             content.add(model)
         }
-        .gesture(TapGesture()
-            .targetedToAnyEntity()
-            .onEnded { val in
-                guard let modelEntity = val.entity as? ModelEntity else { return }
-                let newMaterial = UnlitMaterial(color: .blue)
-                modelEntity.model?.materials = [newMaterial]
-            }
-        )
+        .rotation3DEffect(.radians(spinY), axis: .y)
         .gesture(DragGesture(minimumDistance: 0)
             .targetedToAnyEntity()
             .onChanged { val in
-                guard let parent = val.entity.parent else { return }
-                let newPosition = val.convert(val.location3D, from: .local, to: parent)
-                val.entity.position = [newPosition.x, newPosition.y, val.entity.position.z]
+                let startLocation = val.convert(val.startLocation3D, from: .local, to: .scene)
+                let currentLocation = val.convert(val.location3D, from: .local, to: .scene)
+                let delta = currentLocation - startLocation
+                spinX = Double(delta.y) * 5
+                spinY = Double(delta.x) * 5
             }
         )
+        .onAppear {
+            spinX = animal.mapRotationX
+            spinY = animal.mapRotationY
+        }
     }
 }
 
 #Preview {
-    ZoomedView(imageName: "Blue Whale")
+    ZoomedView(animal: Animal.example)
 }

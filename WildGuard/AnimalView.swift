@@ -62,7 +62,7 @@ struct AnimalView: View {
 
                         Button {
                             #if os(visionOS)
-                            openWindow(value: animal.mapImage)
+                            openWindow(value: animal)
                             #else
                             selectedImage = animal.mapImage
                             #endif
