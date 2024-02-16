@@ -28,6 +28,13 @@ struct WildGuardApp: App {
             }
         }
         .defaultSize(width: 1000, height: 1000)
+
+        ImmersiveSpace(id: "Space") {
+            Image("Red Panda")
+                .resizable()
+                .frame(width: 1000, height: 1000)
+        }
+        .immersionStyle(selection: .constant(.progressive), in: .progressive, .full, .mixed)
     }
 }
 

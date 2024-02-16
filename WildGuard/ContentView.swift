@@ -9,7 +9,11 @@ import SwiftUI
 import RealityKit
 
 struct ContentView: View {
+
     @State private var dataController = DataController()
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @State private var isImmersiveSpaceOpen = false
 
     var body: some View {
         TabView(selection: $dataController.selectedTab) {
@@ -28,6 +32,20 @@ struct ContentView: View {
             }
         }
         .environment(dataController)
+
+        Button("Toggle Immersive Space") {
+            if isImmersiveSpaceOpen {
+                Task {
+                    await dismissImmersiveSpace()
+                }
+            } else {
+                Task {
+                    await openImmersiveSpace(id: "Space")
+                }
+            }
+
+            isImmersiveSpaceOpen.toggle()
+        }
     }
 }
 
